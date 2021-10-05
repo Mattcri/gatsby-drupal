@@ -1,3 +1,6 @@
+#file svg
+src/images/*.svg
+
 # Logs
 logs
 *.log

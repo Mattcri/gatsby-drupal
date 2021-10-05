@@ -14,7 +14,7 @@ const Home = (props) => {
           {map(elements, element => (
             <Col key={element.id} md={6} lg={4} className="my-3">
               <Card className="h-100">
-                <Card.Img variant="top" src={element.imageSrc} />
+                <Card.Img variant="top" src={element.imageSrc} alt={element.imageAlt} />
                 <Card.Body className="position-relative pb-5">
                   <Card.Title>{element.title}</Card.Title>
                   <Card.Text>

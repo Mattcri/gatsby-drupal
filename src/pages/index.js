@@ -20,7 +20,7 @@ const IndexPage = (props) => {
       imageAlt: article.relationships.field_media_image.field_media_image.alt,
       imageSrc: article.relationships.field_media_image.relationships.field_media_image.localFile.publicURL,
     }
-    return values 
+    return values
   })
 
   return (
@@ -57,7 +57,6 @@ export const queryHome = graphql`
               field_media_image {
                 localFile {
                   publicURL
-                  base
                 }
               }
             }
