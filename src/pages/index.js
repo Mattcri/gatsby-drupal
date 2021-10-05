@@ -1,29 +1,76 @@
 import * as React from "react"
-import { Link } from "gatsby"
-import { StaticImage } from "gatsby-plugin-image"
+import { graphql } from "gatsby"
+import PropTypes from "prop-types"
+// import { StaticImage } from "gatsby-plugin-image"
 
 import Layout from "../components/layout"
+import Home from "../components/home"
 import Seo from "../components/seo"
 
-const IndexPage = () => (
-  <Layout>
-    <Seo title="Home" />
-    <h1>Hi people</h1>
-    <p>Welcome to your new Gatsby site.</p>
-    <p>Now go build something great.</p>
-    <StaticImage
-      src="../images/gatsby-astronaut.png"
-      width={300}
-      quality={95}
-      formats={["auto", "webp", "avif"]}
-      alt="A Gatsby astronaut"
-      style={{ marginBottom: `1.45rem` }}
-    />
-    <p>
-      <Link to="/page-2/">Go to page 2</Link> <br />
-      <Link to="/using-typescript/">Go to "Using TypeScript"</Link>
-    </p>
-  </Layout>
-)
+const IndexPage = (props) => {
+  const {data} = props
+  const queryData = data.allNodeArticle.nodes
+  const dataProps = queryData.map(article => {
+    let values = {
+      title: article.title,
+      id: article.id,
+      path: article.path.alias,
+      summary: article.body.summary,
+      date: article.created,
+      imageAlt: article.relationships.field_media_image.field_media_image.alt,
+      imageSrc: article.relationships.field_media_image.relationships.field_media_image.localFile.publicURL,
+    }
+    return values 
+  })
+
+  return (
+    <>
+      <Layout>
+        <Seo title="Home" />
+        <h3>Articles</h3>
+        <pre>{JSON.stringify(dataProps, null, 2)}</pre>
+        <Home elements={dataProps} />
+      </Layout>
+    </>
+  )
+
+}
+
+IndexPage.propsTypes = {
+  data: PropTypes.object.isRequired
+}
+
+export const queryHome = graphql`
+    query Home {
+    allNodeArticle(sort: {fields: id, order: DESC}) {
+      nodes {
+        title
+        path {
+          alias
+        }
+        body {
+          summary
+        }
+        relationships {
+          field_media_image {
+            relationships {
+              field_media_image {
+                localFile {
+                  publicURL
+                  base
+                }
+              }
+            }
+            field_media_image {
+              alt
+            }
+          }
+        }
+        id
+        created
+      }
+    }
+  }
+`;
 
 export default IndexPage

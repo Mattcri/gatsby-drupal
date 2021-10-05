@@ -6,3 +6,10 @@
   min-height: 60vh;
   margin-bottom: 2rem;
 }
+
+.btn-actions {
+  position: absolute;
+  bottom: 9.5px;
+  left: 50%;
+  transform: translateX(-50%);
+}
