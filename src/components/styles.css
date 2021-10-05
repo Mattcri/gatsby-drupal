@@ -1,3 +1,11 @@
+main {
+  min-height: calc(91vh - 148px);
+}
+
+footer {
+  background: #f5f5f5;
+}
+
 .article-hero {
   object-fit: cover;
   width: 100%;
@@ -12,4 +20,8 @@
   bottom: 9.5px;
   left: 50%;
   transform: translateX(-50%);
+}
+
+.fw-bold > button {
+  font-weight: bold;
 }

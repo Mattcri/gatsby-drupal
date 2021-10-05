@@ -11,7 +11,7 @@ const ArticleComponent = ({ title, body, imageData, imageAlt }) => {
       <Layout>
         <Seo title="Article" />
         <img src={imageData} alt={imageAlt} className="article-hero" />
-        <div className="container">
+        <div className="container px-lg-5">
           <h1>{title}</h1>
           <div dangerouslySetInnerHTML={{__html: body}} />
         </div>

@@ -22,7 +22,7 @@ const Header = ({ siteTitle }) => (
         <Navbar expand="lg"  variant="dark">
           <Link to="/" style={{ textDecoration: 'none' }}>
             <Navbar.Brand >
-              {siteTitle}
+              {siteTitle} 💻
             </Navbar.Brand>
           </Link>
           <Navbar.Toggle aria-controls="navbarScroll" />

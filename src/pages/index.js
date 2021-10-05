@@ -27,8 +27,8 @@ const IndexPage = (props) => {
     <>
       <Layout>
         <Seo title="Home" />
-        <h3>Articles</h3>
-        <pre>{JSON.stringify(dataProps, null, 2)}</pre>
+        <h3 className="px-3 mt-5 mb-4 text-center">¡Welcome! check all our articles</h3>
+        {/* <pre>{JSON.stringify(dataProps, null, 2)}</pre> */}
         <Home elements={dataProps} />
       </Layout>
     </>

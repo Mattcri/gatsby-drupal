@@ -1,7 +1,7 @@
 import React from "react";
 
 const Footer = () => (
-  <footer className="mt-5 py-3">
+  <footer className="mt-4 py-4">
     <div className="container">
       © {new Date().getFullYear()}, Built with
       {` `}

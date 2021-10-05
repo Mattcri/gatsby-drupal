@@ -23,11 +23,9 @@ const Home = (props) => {
                   <Link to={element.path}>
                     <Button className="btn-actions"> VER MÁS <Badge className="ms-1" bg="light">📎</Badge> </Button>
                   </Link>
-
                 </Card.Body>
                 <Card.Footer className="text-muted">Publicado: {element.date.substring(0, 10)}</Card.Footer>
               </Card>
-              
             </Col>
           ))}
         </Row>
