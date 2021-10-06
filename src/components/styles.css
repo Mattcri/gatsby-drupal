@@ -42,3 +42,14 @@ footer a:hover {
 .fw-bold > button {
   font-weight: bold;
 }
+
+.card-img {
+  border-top-left-radius: calc(.25rem - 1px);
+  border-top-right-radius: calc(.25rem - 1px);
+}
+
+@media only screen and (max-width: 370px) {
+  .navbar-brand {
+    font-size: 1.1rem;
+  }
+}

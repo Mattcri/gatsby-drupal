@@ -19,6 +19,7 @@ const IndexPage = (props) => {
       date: article.created,
       imageAlt: article.relationships.field_media_image.field_media_image.alt,
       imageSrc: article.relationships.field_media_image.relationships.field_media_image.localFile.publicURL,
+      imageBase: article.relationships.field_media_image.relationships.field_media_image.localFile.childImageSharp.fluid,
     }
     return values
   })
@@ -57,6 +58,11 @@ export const queryHome = graphql`
               field_media_image {
                 localFile {
                   publicURL
+                  childImageSharp {
+                    fluid(maxWidth: 600) {
+                      ...GatsbyImageSharpFluid
+                    }
+                  }
                 }
               }
             }

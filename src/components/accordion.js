@@ -19,6 +19,16 @@ const AccordionCp = () => (
         Para modo de ejemplo de la página actual se ocupo los tipos de contenido de articles y generar una vista para cada uno.
       </Accordion.Body>
     </Accordion.Item>
+    <Accordion.Item eventKey="2">
+      <Accordion.Header className="fw-bold">Problemas con gatsby-plugin-image y solución</Accordion.Header>
+      <Accordion.Body>
+        Para renderizar una imágen con las funcionalidades de optimización de carga realizadas por Gatsby, en ocasiones suele ocurrir un problema al cargar una imágen con gatsby-plugin-image. Ya que este plugin solo puede hacer render de imágenes que se encuentren en un ambiente local. Si estamos intentando utlizar un servicio externo para traer contenido puede surgir el siguiente error al pasar la data en <b>src</b> o <b>image</b> de StaticImage: <br/>
+        <code>no data found for image undefined could not find values for the following props at build time src gatsby</code> <br/>
+        La solución rápida para este problema es utilizar el plugin de <b>gatsby-image</b> que actualmente se encuentra deprecado, pero se puede seguir utilizando. <br/>
+        <code>npm install --save gatsby-plugin-remote-images</code> <br/>
+        La otra alternativa es realizar configuraciones extras para poder optimizar este problema. Para más información consultar la <a href="https://www.gatsbyjs.com/plugins/gatsby-plugin-remote-images/">siguiente documentación.</a>
+      </Accordion.Body>
+    </Accordion.Item>
   </Accordion>
 )
 
