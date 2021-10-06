@@ -17,6 +17,11 @@ export const query = graphql`
             field_media_image {
               localFile {
                 publicURL
+                childImageSharp {
+                  fluid(maxWidth: 600) {
+                    ...GatsbyImageSharpFluid
+                  }
+                }
               }
             }
           }
@@ -32,8 +37,9 @@ const ArticleTemplate = ({data}) => {
   const articleProps = {
     title: data.nodeArticle.title,
     body: data.nodeArticle.body.processed,
-    imageData: data.nodeArticle.relationships.field_media_image.relationships.field_media_image.localFile.publicURL,
+    // imageData: data.nodeArticle.relationships.field_media_image.relationships.field_media_image.localFile.publicURL,
     imageAlt: data.nodeArticle.relationships.field_media_image.field_media_image.alt,
+    imageSrc: data.nodeArticle.relationships.field_media_image.relationships.field_media_image.localFile.childImageSharp.fluid,
   };
 
   return <ArticleComponent {...articleProps} />
